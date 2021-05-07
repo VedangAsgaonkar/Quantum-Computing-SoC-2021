@@ -1,0 +1,18 @@
+The following observations have been made regarding 
+Quantum algorithms:
+1) We tend to pass in uniform superposition made 
+   using H
+2) Oracles are capable of verification of solution 
+   though not of search
+3) We generally pass in a non-1 eigenvalued 
+   Eigenvector of the oracle as the qubit to which
+   the oracle xors the output. This allows for phase
+   kickback 
+4) It is better to represent superposition states as 
+   Tensor products 
+5) Quantum security algorithms exploit no cloning
+   theorem and entanglement 
+6) Quantum communication algorithms exploit entanglement 
+   The reason behind use of entanglement is the ability
+   to manipulate a 2 qubit system while possessing only
+   1 qubit
