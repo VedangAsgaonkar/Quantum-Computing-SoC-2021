@@ -53,5 +53,8 @@ Additionaly the following are defined:
     
     The operator can also be used to manipulate a particular element or index of an array
 
-
+2) Range:
+    Written as start .. step .. stop
+    Start is always inclusive. Stop is inclusive if it is possible to reach it from start by step sized steps
+    We can also write start .. stop meaning step=1
 
