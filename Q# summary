@@ -38,3 +38,20 @@ for x in 0 .. Length(array_of_qubits)-1{
     //code
 }
     
+
+CLASSICAL OPERATORS:
++ - * / % > < >= <= == != and or not ?: += -= *= /= %=
+Additionaly the following are defined:
+1) Copy and update:
+    A w/ B <- C
+    This returns the object A with its member B updated as C
+    w/ is like a short form for "with"
+    There is also a shorthand
+    A w/= B<-C
+    meaning
+    A = A w/ B <- C
+    
+    The operator can also be used to manipulate a particular element or index of an array
+
+
+
