@@ -1,5 +1,8 @@
 Lines end with a  ;
 
+DATA TYPES:
+https://docs.microsoft.com/en-us/azure/quantum/user-guide/language/typesystem/
+
 CREATING CLASSICAL VARIABLES IN Q#
 1)let : It creates immutable variables. Eg: let x = 1 ;
 2)mutable: It creates mutable variables. Eg: mutable x = 1 ;
