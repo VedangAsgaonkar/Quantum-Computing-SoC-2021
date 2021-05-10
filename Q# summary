@@ -1,0 +1,40 @@
+Lines end with a  ;
+
+CREATING CLASSICAL VARIABLES IN Q#
+1)let : It creates immutable variables. Eg: let x = 1 ;
+2)mutable: It creates mutable variables. Eg: mutable x = 1 ;
+3)set: It alters mutable variables. Eg: set x = x + 1 ;
+
+COMMENTS:
+Only single line comments are allowed. 
+// comments give single line comments
+/// gives markdown documentation comments
+
+CONDITIONALS:
+Written as follows:
+    if x==1 {
+    //code
+    }
+    elif x > 3 {
+    //code
+    }
+    else{
+    //code
+    }
+    
+ITERATIONS:
+The for loop is used to iterate over the elements of an array or in a range. The loop
+variable is immutable in code and local to the loop
+
+for qubit in array_of_qubits{
+    //code
+}
+
+for x in 0 .. 9 { // the .. operator is a both ends inclusive range
+    //code
+}
+
+for x in 0 .. Length(array_of_qubits)-1{
+    //code
+}
+    
