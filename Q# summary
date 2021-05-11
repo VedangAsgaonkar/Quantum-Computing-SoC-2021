@@ -76,5 +76,19 @@ Additionaly the following are defined:
 FUNCTIONS:
 They represent purely deterministic behaviour. They are capable of performing classical operations. They can take qubits
 as input, but they cannot alter them, nor call quantum operators.
+They can be declared as:
+function Hello( name: String , rollno : Int ) : String {
+            if( rollno == 1 ){
+                        return $"Hello {name} ";
+            }
+            else{
+                        return "Error" ;
+            }
+}
 
 QUANTUM OPERATIONS:
+
+TYPE DECLERATIONS:
+New data types can be made from primitive ones. 
+Arrays can be declared as
+            mutable arr = new Int[10] ;
