@@ -111,7 +111,26 @@ This is done as
             }
  Q# automatically generates the Adj (adjoint) and Ctl (control) operations for the given operation. However autogeneration will
  occur only as long as mutable types are not involved. Autogeneration can even be done in case of a mixture of classical and quantum
- computations. However each operation/function called within the given operation must itself support Adj
+ computations. However each operation/function called within the given operation must itself support Adj. Autogeneration fails in 
+ case Measure is used.
+ 
+ We can also manually specify the implementations of some/all of Adj , Ctl and the controlled adjoint ( note that Adj(Ctl) = Ctl(Adj) )
+             operation Swap( q1: Qubit , q2: Qubit) : Unit is Adj+Ctl{
+                        body( ... ){
+                        
+                        }
+                        adjoint(...){
+                        
+                        }
+                        controlled(...){
+                        
+                        }
+                        controlled adjoint(...){
+                        
+                        }
+            }
+  
+See also: https://docs.microsoft.com/en-us/azure/quantum/user-guide/language/programstructure/specializationdeclarations
 
 TYPE DECLERATIONS:
 New data types can be made from primitive ones. 
