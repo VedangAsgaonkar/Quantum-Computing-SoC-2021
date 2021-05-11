@@ -132,6 +132,10 @@ This is done as
   
 See also: https://docs.microsoft.com/en-us/azure/quantum/user-guide/language/programstructure/specializationdeclarations
 
+To call the adjointed version of an operation A(args) , you call Adjoint A(args)
+To call the controlled version of an operation A(args) , to be controlled by the qubit array Qubits[] named qubits,
+we call Controlled A( qubits , args)
+
 TYPE DECLERATIONS:
 New data types can be made from primitive ones. 
 Arrays can be declared as
