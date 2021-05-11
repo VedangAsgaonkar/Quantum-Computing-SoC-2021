@@ -12,16 +12,43 @@ QUANTUM DATA TYPES:
           to represent the basis of measurement.
 3)Result : It specifies the result of a single qubit measurement in terms of the eigenvalue that was measured.
             0 indicates eigenvalue 1 = (-1)^0 was measured. 1 indicates eigenvalue -1 = (-1)^1 was measured.
-
+The arithmetic library includes quantum arithmetic operations for both big-endian and little-endian quantum integers. It hence defines two types, BigEndian and LittleEndian, both of which contain a single anonymous item of type Qubit[]:
+    newtype BigEndian = Qubit[];
+    newtype LittleEndian = Qubit[];
 CREATING CLASSICAL VARIABLES IN Q#
 1)let : It creates immutable variables. Eg: let x = 1 ;
 2)mutable: It creates mutable variables. Eg: mutable x = 1 ;
 3)set: It alters mutable variables. Eg: set x = x + 1 ;
 
+Allocating Quantum memory:
+Qubits are allocated using the use statement. Their scope is either till the end of the namespace where they are made. 
+Alternatively, the scope may be restricted to a block after the qubit declaration by using {} . 
+            use qubit = Qubit() ;
+            use (aux,register) = (Qubit() , Qubit[5]) ;
+            use qubit = Qubit() {
+            
+            }
+            use (aux,register) = (Qubit() , Qubit[5]){
+            
+            }
+ The Qubits are always created in |0> state. 
+ There is a restriction on how the scope must end. The Qubit scope can end either by measurement as the last operation on it. 
+ Otherwise, the Qubit must be returned back to |0> before its scope ends. Failing to do so will lead to incorrect behaviour in
+ future allocations.
+
 COMMENTS:
 Only single line comments are allowed. 
 // comments give single line comments
 /// gives markdown documentation comments
+
+ARRAYS:
+Arrays can be declared as
+            mutable arr = new Int[10] ;
+            let myArr = new Qubit[3] ;
+ Elements can be accessed using[]
+            let x = arr[2] ;
+ Also the parameter inside the [] can be of type Range, thus giving an array slice
+            let arr2 = arr[1..3..7] ;
 
 CONDITIONALS:
 Written as follows:
@@ -72,6 +99,7 @@ Additionaly the following are defined:
     Written as start .. step .. stop
     Start is always inclusive. Stop is inclusive if it is possible to reach it from start by step sized steps
     We can also write start .. stop meaning step=1
+    Also, ..step.. means start at the beginning, go till the end. A negative step means start from the end.
     
 CALLABLES:
 Callables come in 2 types: functions and operators. They can be declared in any order and can even access callables declared
@@ -138,5 +166,21 @@ we call Controlled A( qubits , args)
 
 TYPE DECLERATIONS:
 New data types can be made from primitive ones. 
-Arrays can be declared as
-            mutable arr = new Int[10] ;
+            newtype Complex = (Real: Double, Imaginary : Double);
+            newtype Nested = (Double, (ItemName : Int, String));
+The items may be named/unnamed and may be nested as above.
+Instantiation:
+            let myNum = Complex(1.2 , 3.4 );
+Access: The elements may be accessed either by name as:
+            let re = myNum::Real ;
+         They can also be accessed by deconstruction operator !
+         Writing myNum! will return a tuple of shape (Double,Double)
+         Similarly if we have myNest as an object of Nested, writing myNest! will return a tuple (DOuble,(Int,String))
+         Now the elements can be accessed as:
+            let (re,_) = myNum! ;
+            let (x,(_,_)) = myNest! ;
+         Here _ serves as a place holder.
+Alterration: The mutable instances can be alterred uing the w/ <- operator.
+            mutable comp = new Complex(1,2) ;
+            comp w/= comp::Real<-3.14 ;
+
