@@ -1,7 +1,13 @@
 Lines end with a  ;
 
-DATA TYPES:
+CLASSICAL DATA TYPES:
 https://docs.microsoft.com/en-us/azure/quantum/user-guide/language/typesystem/
+
+QUANTUM DATA TYPES:
+1)Qubit : represents a single qubit
+2)Pauli : 4 types PauliI , PauliX , PauliY , PauliZ . They represent a single qubit pauli gate
+3)Result : It specifies the result of a single qubit measurement in terms of the eigenvalue that was measured.
+            0 indicates eigenvalue 1 = (-1)^0 was measured. 1 indicates eigenvalue -1 = (-1)^1 was measured.
 
 CREATING CLASSICAL VARIABLES IN Q#
 1)let : It creates immutable variables. Eg: let x = 1 ;
