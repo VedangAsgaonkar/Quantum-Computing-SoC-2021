@@ -183,4 +183,9 @@ Access: The elements may be accessed either by name as:
 Alterration: The mutable instances can be alterred uing the w/ <- operator.
             mutable comp = new Complex(1,2) ;
             comp w/= comp::Real<-3.14 ;
+            
+NAMESPACES:
+All callables and Qubits must exist inside namespaces
+
+
 
