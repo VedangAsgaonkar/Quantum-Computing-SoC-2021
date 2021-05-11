@@ -72,6 +72,10 @@ Additionaly the following are defined:
     Written as start .. step .. stop
     Start is always inclusive. Stop is inclusive if it is possible to reach it from start by step sized steps
     We can also write start .. stop meaning step=1
+    
+CALLABLES:
+Callables come in 2 types: functions and operators. They can be declared in any order and can even access callables declared
+after themselves. They can be directly/ indirectly recursive.
 
 FUNCTIONS:
 They represent purely deterministic behaviour. They are capable of performing classical operations. They can take qubits
@@ -87,6 +91,27 @@ function Hello( name: String , rollno : Int ) : String {
 }
 
 QUANTUM OPERATIONS:
+They are capable of altering qubits and performing classical as well as quantum computations.
+They are declared as
+            operation Swap( q1: Qubit , q2: Qubit) : Unit { //Unlike functions, in operators the qubits are actually passed. It is the qubit that gets alterred not a copy of it. Remember: arbitary qubits cannot be copied.
+                                                            //The return type Unit means void
+                        body( ... ){ //the ... means, all arguments will be used
+                                    CNOT(q1, q2);
+                                    CNOT(q2, q1);
+                                    CNOT(q1, q2);
+                        }
+            }
+            
+Additionally, functors can be used in operations ( even in functions ) to specify additional features.
+This is done as 
+            operation Swap( q1: Qubit , q2: Qubit) : Unit is Adj+Ctl{
+                        body( ... ){
+                        
+                        }
+            }
+ Q# automatically generates the Adj (adjoint) and Ctl (control) operations for the given operation. However autogeneration will
+ occur only as long as mutable types are not involved. Autogeneration can even be done in case of a mixture of classical and quantum
+ computations. However each operation/function called within the given operation must itself support Adj
 
 TYPE DECLERATIONS:
 New data types can be made from primitive ones. 
