@@ -73,3 +73,8 @@ Additionaly the following are defined:
     Start is always inclusive. Stop is inclusive if it is possible to reach it from start by step sized steps
     We can also write start .. stop meaning step=1
 
+FUNCTIONS:
+They represent purely deterministic behaviour. They are capable of performing classical operations. They can take qubits
+as input, but they cannot alter them, nor call quantum operators.
+
+QUANTUM OPERATIONS:
