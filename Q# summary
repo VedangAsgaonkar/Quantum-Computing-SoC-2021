@@ -185,7 +185,7 @@ Alterration: The mutable instances can be alterred uing the w/ <- operator.
             comp w/= comp::Real<-3.14 ;
             
 NAMESPACES:
-All callables and Qubits must exist inside namespaces.
+All callables and type declarations must exist inside namespaces.
 https://docs.microsoft.com/en-us/azure/quantum/user-guide/language/programstructure/namespaces
 
 
