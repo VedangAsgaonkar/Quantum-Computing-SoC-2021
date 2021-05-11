@@ -2,10 +2,14 @@ Lines end with a  ;
 
 CLASSICAL DATA TYPES:
 https://docs.microsoft.com/en-us/azure/quantum/user-guide/language/typesystem/
+No references or pointers are present
 
 QUANTUM DATA TYPES:
-1)Qubit : represents a single qubit
-2)Pauli : 4 types PauliI , PauliX , PauliY , PauliZ . They represent a single qubit pauli gate
+1)Qubit : represents a single qubit. The Qubit s can be alterred only by operations. They can be passed to 
+            functions, though they cannot be alterred there. In operations, they are alterred by a standard
+            set of operations.
+2)Pauli : 4 types PauliI , PauliX , PauliY , PauliZ . They represent a single qubit pauli gate. Mainly used
+          to represent the basis of measurement.
 3)Result : It specifies the result of a single qubit measurement in terms of the eigenvalue that was measured.
             0 indicates eigenvalue 1 = (-1)^0 was measured. 1 indicates eigenvalue -1 = (-1)^1 was measured.
 
@@ -61,6 +65,8 @@ Additionaly the following are defined:
     A = A w/ B <- C
     
     The operator can also be used to manipulate a particular element or index of an array
+    For eg:
+    arr w/= 0 <- 3 means replace the element at index 0 with the number 3
 
 2) Range:
     Written as start .. step .. stop
