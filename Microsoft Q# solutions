@@ -1,0 +1,166 @@
+SOLUTIONS TO MICROSOFT Q# CONTEST:
+
+A1)
+
+namespace Solution {
+    open Microsoft.Quantum.Intrinsic;
+
+    operation Solve (unitary : (Qubit[] => Unit is Adj+Ctl)) : Int {
+        use q = Qubit[2];
+		X(q[0]);
+		unitary(q);
+		return M(q[1])== One ? 0 | 1 ;
+    }
+}
+
+A2)
+
+namespace Solution {
+    open Microsoft.Quantum.Intrinsic;
+
+    operation Solve (unitary : (Qubit[] => Unit is Adj+Ctl)) : Int {
+        use q = Qubit[2];
+		X(q[0]);
+		unitary(q);
+		let b1 = M(q[0])==One ;
+		let b2 = M(q[1])==One;
+		if(b1 and b2){
+			X(q[0]);
+			X(q[1]);
+			return 1 ;
+		}
+		if(b2 and not b1){
+			X(q[1]);
+			return 3 ;
+		}
+		else{
+			unitary([q[1],q[0]]);
+			let b3 = M(q[1])==One;
+			if(b3){
+				X(q[0]);
+				X(q[1]);
+				return 2
+			}
+			else{
+				X(q[0]);
+				return 1;
+			}
+		}
+    }
+}
+
+A3)
+
+namespace Solution {
+    open Microsoft.Quantum.Intrinsic;
+
+    operation Solve (unitary : (Qubit => Unit is Adj+Ctl)) : Int {
+        use q = Qubit();
+		unitary(q);
+		Z(q);
+		unitary(q);
+		return M(q)==Zero ? 1 | 0; 
+    }
+}
+
+A4)
+
+namespace Solution {
+    open Microsoft.Quantum.Intrinsic;
+	open Microsoft.Quantum.Math;
+    operation Solve (unitary : ((Double, Qubit) => Unit is Adj+Ctl)) : Int {
+        use reg = Qubit();
+		use aux = Qubit();
+		X(reg);
+		H(aux);
+		Controlled unitary([aux],(reg,2.0*PI()));
+		X(reg);
+		H(aux);
+		return M(aux)==Zero ? 1 | 0 ;
+    }
+}
+
+A5)
+
+namespace Solution {
+    open Microsoft.Quantum.Intrinsic;
+	open Microsoft.Quantum.Math ;
+    operation Solve (theta : Double, unitary : (Qubit => Unit is Adj+Ctl)) : Int {
+		let r = Floor(2.0*PI()/theta);
+		use q = Qubit();
+		for i in 1..r {
+			unitary(q);
+		}
+		return M(q)==Zero?0|1;
+    }
+}
+
+A6)
+
+namespace Solution {
+    open Microsoft.Quantum.Intrinsic;
+
+    operation Solve (unitary : (Qubit => Unit is Adj+Ctl)) : Int {
+        use q1= Qubit();
+		use q2= Qubit();
+		H(q1);
+		CNOT(q1,q2);
+		unitary(q1);
+		CNOT(q1,q2);
+		H(q1);
+		let b1 = M(q1)==One ;
+		let b2 = M(q2)==One ;
+		if(b1){
+			if(b2){
+				X(q1);
+				X(q2);
+				return 2 ;
+			}
+			else{
+				X(q1);
+				return 3 ;
+			}
+		}else{
+			if(b2){
+				X(q2);
+				return 1;
+			}
+			else{
+				return 0;
+			}
+		}
+    }
+}
+
+A7)
+
+namespace Solution {
+    open Microsoft.Quantum.Intrinsic;
+
+    operation Solve (unitary : (Qubit => Unit is Adj+Ctl)) : Int {
+		use reg = Qubit();
+		use aux = Qubit();
+		H(aux);
+		Controlled unitary([aux],reg);
+		Controlled unitary([aux],reg);
+		H(aux);
+		let b = M(aux)==One ;
+		if(b){
+			//XZ or -XZ
+			X(aux);
+			H(aux);
+			Controlled unitary([aux],reg);
+			CNOT(aux,reg);
+			H(aux);
+			return M(aux)==One ? 1 | 3 ;
+		}
+		else{
+			//Y or -Y
+			H(aux);
+			Controlled unitary([aux],reg);
+			Controlled Y([aux],reg);
+			H(aux);
+			return M(q)==Zero ? 0 | 2 ;
+		}
+    }
+}
