@@ -207,3 +207,26 @@ namespace Solution {
 		}		
     }
 }
+
+E1)
+
+namespace Solution {
+    open Microsoft.Quantum.Arithmetic;
+    open Microsoft.Quantum.Intrinsic;
+
+    operation Solve (p : Int, inputRegister : LittleEndian) : Unit is Adj+Ctl {
+        let r = p%4 ;
+		if(r==1){
+			QFTLE(inputRegister);
+		}
+		if(r==2 or r==3){
+			for q in inputRegister{
+				X(q);
+			}
+			IncrementByInteger(1,inputRegister);
+			if(r==3){
+				QFTLE(inputRegister);
+			}
+		}		
+    }
+}
