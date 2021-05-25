@@ -164,3 +164,46 @@ namespace Solution {
 		}
     }
 }
+
+C1)
+
+namespace Solution {
+    open Microsoft.Quantum.Intrinsic;
+
+    operation Solve (qs : Qubit[]) : Unit {
+        for q in qs{
+			X(qs);
+		}
+		
+		repeat{
+			for q in qs{
+				X(qs);
+				H(qs);
+			}
+			use aux = Qubit();
+			Controlled X(qs);			
+		}until (M(aux)==Zero) ;
+    }
+}
+
+C2)
+
+namespace Solution {
+    open Microsoft.Quantum.Intrinsic;
+
+    operation Solve (qs : Qubit[], parity : Int) : Unit {
+        if(parity==0){
+			H(qs[0]);
+		}
+		else{
+			X(qs[0]);
+			H(qs[0]);
+		}
+		for q in qs[1..]{
+			CNOT(qs[0],q);
+		}
+		for q in qs{
+			H(q);
+		}		
+    }
+}
