@@ -7,13 +7,14 @@ We went through the fundamentals of quantum mechanics, understanding everything 
 We also understood the idea of measurement in terms of projection operators.
 
 ## Quantum circuits
-* We started with the simplest quantum system, the qubit which exhibits two states <img src="https://render.githubusercontent.com/render/math?math=|0\rangle"> and $|1\rangle$
+* We started with the simplest quantum system, the qubit which exhibits two states
 * We studied the basic unitary transforms like the identity, pauli gates, hadamard transform and rotations on the Bloch sphere
 * We then proved that any one qubit gate can be approximated to arbitary accuracy using H, X, T and S gates
 * We took the CNOT gate as the fundamental unit of extension to more than one qubits
 * We then proved the constructability of all multi-qubit gates using CNOTs and single qubit gates
 * We went on to find constructions for multi-qubit controlled gates using auxiliary qubits
 * We understood the principle of delayed measurement and measurment in different basis
+* We showed that although unitary transformations are reversible and so cannot do a quantum version of fan-in, fan-out and classical logic; but atleast classical bits represented in qubits can undergo these operations. Hence a quantum computer can simulate a Turing machine, and so is atleast as powerful as a classical computer
 * We constructed some basic quantum circuits like swap, modular addition, comparison, subtraction, shift etc.
 
 ## Quantum Information and Encryption
@@ -24,7 +25,7 @@ We also understood the idea of measurement in terms of projection operators.
 ## Basic themes in quantum algorithms
 * Construction of states using gates, arbitary rotation and measurement. Construction of Bell, W and GHZ states
 * Distinguishing unitaries. Using controlled gates and kickback for finding global phase
-* Employing phase kickback of the X gate on auxiliary $\frac{|0\rangle - |1\rangle}{\sqrt{2}}$ to interconvert phase and value oracles
+* Employing phase kickback of the X gate on auxiliary qubit in eigenstate of X to interconvert phase and value oracles
 * Construction of oracles based on some classical operations
 * Construction of superposition using H gate. The parallel processing power of quantum circuits
 
