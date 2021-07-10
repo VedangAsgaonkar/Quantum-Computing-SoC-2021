@@ -27,3 +27,14 @@ We also understood the idea of measurement in terms of projection operators.
 * Employing phase kickback of the X gate on auxiliary $\frac{|0\rangle - |1\rangle}{\sqrt{2}}$ to interconvert phase and value oracles
 * Construction of oracles based on some classical operations
 * Construction of superposition using H gate. The parallel processing power of quantum circuits
+
+## Quantum Fourier Transform
+* We studied the discrete fourier transform, its inverse. We understood the quantum algorithm for it, which is more efficient than the classical FFT
+* We understood the phase finding algorithm for finding phase of eigenvalues. We studied about the number of qubits neede for a given accuracy threshold. We also studied, how a superposition of eigenvectors can be used for this algorithm
+* We used phase finding for the order finding algorithm by using an oracle which performs the modular exponentiation in terms of qubits. We found the eigenvectors and eigenvalues of such an oracle in terms of the order. We then supplied a superposition of these eigenvectors i.e. the zero state and use phase estimation to find the order in constant time
+* We then employed order finding for the Schor's algorithm, to find prime factors
+* We generalised this method to the period finding problem. We also generalised to functions of higher dimensions by solving the discrete logarithm problem
+
+## Quantum Search
+* We understood the idea of oracles, and the fact that verification is not the same as solving
+*
