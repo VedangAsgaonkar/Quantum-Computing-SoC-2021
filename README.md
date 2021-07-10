@@ -37,4 +37,7 @@ We also understood the idea of measurement in terms of projection operators.
 
 ## Quantum Search
 * We understood the idea of oracles, and the fact that verification is not the same as solving
-*
+* We used Grover iterations to search through unstructured databases with a quadratic speed-up
+* We understood the Grover's algortihm in terms of rotation in a space spanned by the uniform superposition of solutions and non-solutions
+* We employed phase estimation on each Grover unit to find the number of solutions in constant time i.e. quantum counting
+* We understood the idea of quantum simulation, and how the Grover's search can be understood as finding a suitable Hamiltonian
