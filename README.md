@@ -7,7 +7,7 @@ We went through the fundamentals of quantum mechanics, understanding everything 
 We also understood the idea of measurement in terms of projection operators.
 
 ## Quantum circuits
-* We started with the simplest quantum system, the qubit which exhibits two states $|0\rangle$ and $|1\rangle$
+* We started with the simplest quantum system, the qubit which exhibits two states <img src="https://render.githubusercontent.com/render/math?math=|0\rangle"> and $|1\rangle$
 * We studied the basic unitary transforms like the identity, pauli gates, hadamard transform and rotations on the Bloch sphere
 * We then proved that any one qubit gate can be approximated to arbitary accuracy using H, X, T and S gates
 * We took the CNOT gate as the fundamental unit of extension to more than one qubits
