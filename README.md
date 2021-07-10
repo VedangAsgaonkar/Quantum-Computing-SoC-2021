@@ -2,7 +2,7 @@
 
 # Learnings
 
-## Basics if quantum mechanics
+## Basics of quantum mechanics
 We went through the fundamentals of quantum mechanics, understanding everything in the language of linear algebra. We studied unitary time evolution under the Hamiltonian. We also learnt about Hermitian operators, and the relevance of their eigenvalues and eigenvectors, and commutativity.
 We also understood the idea of measurement in terms of projection operators.
 
